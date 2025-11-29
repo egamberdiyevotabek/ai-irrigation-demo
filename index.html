@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>AI Irrigation – Demo</title>
+<style>
+  body { font-family: Arial; padding: 40px; background: #f3f6ff; }
+  h1 { color: #2b4cff; }
+  .card {
+    background: white; padding: 20px; border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+  }
+</style>
+</head>
+<body>
+<h1>AI Irrigation – Live Demo</h1>
+<div class="card">
+  <h2>Avtonom Sun'iy Intellekt Sug'orish Tizimi</h2>
+  <p>
+    Ushbu demo sahifa FAO-56 tamoyillariga asoslangan AI Irrigation loyihasining 
+    ishlash prinsipini ko‘rsatadi. Tizim real vaqtda dala ma'lumotlarini qabul qiladi, 
+    sun’iy intellekt yordamida tahlil qiladi va avtomatik sug‘orish qarorlarini chiqaradi.
+  </p>
+
+  <h3>Real vaqt ma’lumotlari (simulyatsiya)</h3>
+  <p><b>Tuproq namligi:</b> <span id="moisture"></span>%</p>
+  <p><b>ET<sub>0</sub> (FAO-56):</b> <span id="et0"></span> mm/kun</p>
+  <p><b>AI Tahlil:</b> <span id="ai"></span></p>
+
+  <script>
+    function simulate(){
+        let m = (Math.random()*15 + 10).toFixed(1);
+        let e = (Math.random()*6 + 3).toFixed(2);
+
+        document.getElementById("moisture").innerHTML = m;
+        document.getElementById("et0").innerHTML = e;
+
+        if(m < 20) document.getElementById("ai").innerHTML = "Sug‘orish kerak";
+        else document.getElementById("ai").innerHTML = "Hozircha sug‘orish shart emas";
+    }
+    simulate();
+    setInterval(simulate, 3000);
+  </script>
+</div>
+</body>
+</html>
